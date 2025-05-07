@@ -12,6 +12,11 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Actions;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\DeleteBulkAction;
+
+
 
 class AgendasResource extends Resource
 {
@@ -23,7 +28,13 @@ class AgendasResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('title')
+                    ->required()
+                    ->placeholder('Enter the title of the agenda'),
+                TextInput::make('description')
+                    ->required()
+                    ->placeholder('Enter the description of the agenda'),
+                    
             ]);
     }
 
@@ -38,6 +49,7 @@ class AgendasResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
