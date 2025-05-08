@@ -6,6 +6,7 @@ use App\Filament\Resources\AgendasResource\Pages;
 use App\Filament\Resources\AgendasResource\RelationManagers;
 use App\Models\Agendas;
 use Filament\Forms;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Actions;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Forms\Components\Select;
 
 
 
@@ -28,13 +30,23 @@ class AgendasResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
-                    ->required()
-                    ->placeholder('Enter the title of the agenda'),
+                Select::make('comment_id')
+                    ->relationship('comment', 'comment')
+                    ->label('Comment')
+                    ->required(),
                 TextInput::make('description')
                     ->required()
                     ->placeholder('Enter the description of the agenda'),
-                    
+                
+                Forms\Components\Hidden::make('user_id')
+                    ->default(auth()->id())
+                    ->disabled(),
+                CheckboxList::make('Option')
+                    ->options([
+                        'jurnal'    => 'Jurnal',
+                        'makalah'   => 'Makalah',
+                        'laporan'   => 'Laporan',
+                    ])
             ]);
     }
 
@@ -42,13 +54,28 @@ class AgendasResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->sortable()
+                    ->searchable()
+                    ->description(fn (Agendas $record): string => $record->description),    
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
                 
             ])
             ->bulkActions([

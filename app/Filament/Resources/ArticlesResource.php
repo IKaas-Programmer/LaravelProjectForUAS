@@ -43,9 +43,8 @@ class ArticlesResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')
-                    ->label('Title'),
-                TextColumn::make('description')
-                    ->label('Description'),
+                    ->label('Title')
+                    ->description(fn (Articles $record): string => $record->description),
             ])
             ->filters([
                 //
