@@ -11,6 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\ColorPicker;
+use Filament\Tables\Columns\ColorColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -19,7 +20,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Columns\ColorColumn;
+use Illuminate\Database\Eloquent\Model;
 
 class PageResource extends Resource
 {
@@ -36,20 +37,19 @@ class PageResource extends Resource
                     ->placeholder('Title')
                     ->required(),
                 Select::make('type')
-                    ->label('Type')
+                    ->required()
+                    ->placeholder('Options')
                     ->options([
                         'page' => 'Page',
                         'post' => 'Post',
                         'article' => 'Article',
                         'blog' => 'Blog',
                         'review' => 'Review',
-                    ])
-                    ->placeholder('Options')
-                    ->required(),
-                    ColorPicker::make('color')
+                        ]),
+                ColorPicker::make('color')
                     ->label('Color')
-                    ->placeholder('RGB Color')
-                    ->rgb(),
+                    ->rgb()
+                    ->regex('/^rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)$/'),
                 Textarea::make('description')
                     ->label('Description')
                     ->placeholder('Description')
@@ -61,14 +61,21 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
-                TextColumn::make('description')
-                    ->limit(50),
-                TextColumn::make('created_at')
-                    ->label('Created At')
-                    ->dateTime()
+                TextColumn::make('title')
+                    ->description(fn (Page $record): string => $record->description ?? 'No description'),
+                TextColumn::make('type')
+                    ->label('Type')
+                    ->badge()
                     ->sortable()
                     ->toggleable(),
+                ColorColumn::make('color')
+                    ->label('Color'),
+                TextColumn::make('created_at')
+                    ->label('Created At')
+                    ->since()
+                    ->dateTime()
+                    ->sortable()
+
             ])
             ->filters([
                 //

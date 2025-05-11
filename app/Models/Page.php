@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Page extends Model
 {
     protected $fillable = [
-        'user_id',
-        'title',
-        'description',
-        'type',
-        'color',
-    ];
+    'title',
+    'type',
+    'color',
+    'description',
+    'user_id',
+];
 
     public function User(): BelongsTo
     {

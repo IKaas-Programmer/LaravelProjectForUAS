@@ -14,6 +14,6 @@ class agendas extends Model
 
     public function comments()
     {
-        return $this->morphMany(Comments::class, 'commentable');
+        return $this->belongsTo(comments::class);
     }
 }

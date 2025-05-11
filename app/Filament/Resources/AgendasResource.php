@@ -31,15 +31,17 @@ class AgendasResource extends Resource
         return $form
             ->schema([
                 Select::make('comment_id')
-                    ->relationship('comment', 'comment')
+                    ->relationship('comment', 'id')
                     ->label('Comment')
                     ->required(),
                 TextInput::make('description')
                     ->required()
+                    ->maxLength(255)
+                    ->label('Description')
                     ->placeholder('Enter the description of the agenda'),
                 
                 Forms\Components\Hidden::make('user_id')
-                    ->default(auth()->id())
+                    ->default(auth() ->check() ? auth()->user()->id : null)
                     ->disabled(),
                 CheckboxList::make('Option')
                     ->options([
@@ -60,7 +62,7 @@ class AgendasResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
                     ->searchable()
-                    ->description(fn (Agendas $record): string => $record->description),    
+                    ->description(fn (Agendas $record): string => $record->description ?? 'No description'),    
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
