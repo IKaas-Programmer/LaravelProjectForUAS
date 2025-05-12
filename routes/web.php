@@ -18,3 +18,5 @@ Route::get('/page',[HomeController::class,'page'])->name('page');
 Route::get('/comment',[HomeController::class,'comment'])->name('comment');
 
 Route::get('/agendas',[HomeController::class,'agendas'])->name('agendas');
+
+Route::get('/about',[HomeController::class,'about'])->name('about');

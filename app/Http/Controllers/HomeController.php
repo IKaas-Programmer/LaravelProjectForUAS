@@ -63,4 +63,8 @@ class HomeController extends Controller
         ];
         return view('agendas', $data);
     }
+
+    public function about() {
+        return view('about');
+    }
 }

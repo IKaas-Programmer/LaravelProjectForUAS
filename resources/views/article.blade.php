@@ -7,7 +7,7 @@
     @foreach ( $data as $d )
     <div class="col-md-3">
         <div class="container-md">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; box-shadow: 2px 2px; color: #4a4848;">
                 <div class="card-body">
                 <h5 class="card-title">{{ $d->title  }}</h5>
                 <hr>

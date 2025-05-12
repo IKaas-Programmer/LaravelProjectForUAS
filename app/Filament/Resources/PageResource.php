@@ -74,7 +74,11 @@ class PageResource extends Resource
                     ->label('Created At')
                     ->since()
                     ->dateTime()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
                     ->sortable()
+                    ->searchable(),
 
             ])
             ->filters([

@@ -64,6 +64,14 @@ class CommentsResource extends Resource
                 TextColumn::make('comment')
                     ->label('Comment')
                     ->limit(255),
+                    Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->searchable(),
+                    Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //

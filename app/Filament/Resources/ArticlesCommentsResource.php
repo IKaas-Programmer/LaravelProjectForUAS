@@ -46,12 +46,16 @@ class ArticlesCommentsResource extends Resource
                     ->label('Article Title'),
                 TextColumn::make('comment')
                     ->label('Comment')
-                    ->limit(50),
+                    ->limit(255),
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(),
+                    Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->searchable(),
                 
             ])
             ->filters([

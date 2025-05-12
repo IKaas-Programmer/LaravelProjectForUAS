@@ -47,6 +47,13 @@ class UserResource extends Resource
                 TextColumn::make('name'),
                 TextColumn::make('email'),
                 TextColumn::make('password'),
+                
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->label('Created At'),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->label('Updated At'),
             ])
             ->filters([
                 //

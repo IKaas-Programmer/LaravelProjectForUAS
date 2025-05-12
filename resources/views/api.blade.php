@@ -6,7 +6,7 @@
   <hr>
 
     @foreach ($data as $d)
-      <div class="card mb-3 flex-row" style="max-width: 540px;">
+      <div class="card mb-3 flex-row" style="max-width: 540px; box-shadow: 2px 2px; color: #4a4848;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="{{ $d->avatar }}" class="img-fluid rounded-start" alt="image" style="margin: 10px;">
