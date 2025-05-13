@@ -70,8 +70,8 @@
                 </li>
                 <li style="margin: 20px; text-align: center; background-color: rgb(244, 240, 240); box-shadow: 5px 5px #0d0b10;">
                     <img src="{{ asset('assets/image/asta.jpg') }}" alt="asta" style="border-radius: 10%; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color:black;">Bob Johnson</span> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color:black;">Bob Johnson</span>
+                    <span style="font-family: 'Times New Roman', Times, serif; color:black;">I Gede Asta Peramita Darma</span> <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color:black;">Anggota</span>
                     <p style="color: black;">Anggota</p>
                 </li>
             </ul>
