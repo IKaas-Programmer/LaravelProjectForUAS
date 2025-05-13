@@ -60,16 +60,16 @@
                     <img src="{{ asset('assets/image/IKaas.jpg') }}" alt="I Ketut Agus Arta Suteja" style="border-radius: 10%   ; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
                     <span style="font-family: 'Times New Roman', Times, serif; color: #333;">I Ketut Agus Arta Suteja </span> <br>
                     <span style="font-family: 'Times New Roman', Times, serif; color: #333;">NIM: 2355201007</span>
-                    <p style="color: #0d0b10">Ketua Kelompok - hampir 700% ngehandle project ini</p>
+                    <p style="color: #0d0b10">"Keep learning guys"</p>
                 </li>
                 <li style="margin: 20px; text-align: center; background-color: rgb(244, 240, 240); box-shadow: 5px 5px #0d0b10; ;">
-                    <img src="{{ asset('assets/image/IKaas.jpg') }}" alt="Jane Smith" style="border-radius: 50%; margin-bottom: 10px; width: 100px; height: 100px; color:#fff;"> <br>
+                    <img src="{{ asset('assets/image/yoga.jpg') }}" alt="Yoga Prakusya" style="border-radius: 10%; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
                     <span style="font-family: 'Times New Roman', Times, serif; color: black;">Yoga Prakusya</span> <br>
                     <span style="font-family: 'Times New Roman', Times, serif; color: #333;">NIM: 2355201007</span>
                     <p style="color: black;">Anggota</p>
                 </li>
                 <li style="margin: 20px; text-align: center; background-color: rgb(244, 240, 240); box-shadow: 5px 5px #0d0b10;">
-                    <img src="{{ asset('assets/image/IKaas.jpg') }}" alt="Bob Johnson" style="border-radius: 50%; margin-bottom: 10px; width: 100px; height: 100px;"> <br>
+                    <img src="{{ asset('assets/image/asta.jpg') }}" alt="asta" style="border-radius: 10%; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
                     <span style="font-family: 'Times New Roman', Times, serif; color:black;">Bob Johnson</span> <br>
                     <span style="font-family: 'Times New Roman', Times, serif; color:black;">Bob Johnson</span>
                     <p style="color: black;">Anggota</p>
