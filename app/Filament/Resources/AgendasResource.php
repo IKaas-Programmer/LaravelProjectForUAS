@@ -17,12 +17,13 @@ use Filament\Tables\Actions;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Hidden;
 
 
 
 class AgendasResource extends Resource
 {
-    protected static ?string $model = agendas::class;
+    protected static ?string $model = Agendas::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -30,16 +31,15 @@ class AgendasResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('comment_id')
-                    ->relationship('comment', 'id')
-                    ->label('Comment')
+                //
+                TextInput::make('title')
+                    ->maxLength(50)
                     ->required(),
                 TextInput::make('description')
                     ->required()
                     ->maxLength(255)
                     ->label('Description')
                     ->placeholder('Enter the description of the agenda'),
-                
                 Forms\Components\Hidden::make('user_id')
                     ->default(auth() ->check() ? auth()->user()->id : null)
                     ->disabled(),
@@ -62,13 +62,18 @@ class AgendasResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
                     ->searchable()
-                    ->description(fn (Agendas $record): string => $record->description ?? 'No description'),    
+                    ->description(fn (Agendas $record): string => $record->description ?? 'No description'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('Option')
+                    ->label('Options')
+                    ->formatStateUsing(fn ($state) => implode(', ', $state))
                     ->sortable()
                     ->searchable(),
             ])

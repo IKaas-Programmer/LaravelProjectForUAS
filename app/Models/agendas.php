@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Comments;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class agendas extends Model
+class Agendas extends Model
 {
     protected $fillable = [
         'user_id',
@@ -12,8 +14,12 @@ class agendas extends Model
         'description',
     ];
 
-    public function comments()
+    public function comment()
     {
-        return $this->belongsTo(comments::class);
+        return $this->belongsTo(Comments::class, 'comment_id');
+    }
+
+    public function user() {
+        return $this -> belongsTo(User::class, 'user_id');
     }
 }

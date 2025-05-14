@@ -10,6 +10,13 @@ class EditAgendas extends EditRecord
 {
     protected static string $resource = AgendasResource::class;
 
+    protected function mutateFormDataBeforeSave(array $data): array
+{
+    $data['last_edited_by_id'] = auth()->id();
+
+    return $data;
+}
+
     protected function getHeaderActions(): array
     {
         return [
