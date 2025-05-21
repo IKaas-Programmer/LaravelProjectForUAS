@@ -1,84 +1,81 @@
 @extends('layout.index')
-@section('footer')
+
+@section('main')
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .container {
+        .about-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        ul {
+
+        .about-team-list {
             list-style-type: none;
             padding: 0;
         }
-        ul li {
-            background: #f4f4f4;
-            margin: 5px 0;
+
+        .about-team-list li {
+            background: #504747;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 5px 5px #0d0b10;
             padding: 10px;
             border-radius: 5px;
         }
-        footer {
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
+
+        .about-team-list img {
+            border-radius: 10%;
+            margin-bottom: 10px;
+            width: 100px;
+            height: 100px;
+            box-shadow: 2px 2px #514f55;
         }
-        footer .row {
-            display: flex;
-            justify-content: space-between;
-        }
-        footer .col-md-4 {
-            flex: 1;
-            margin: 0 10px;
-        }
-        footer h2 {
-            color: #fff;
-        }
-        footer p {
-            color: #ccc;
+
+        .about-title {
+            color: #333;
         }
     </style>
 
-<h1 style="color:white">About Us</h1>
-<hr>
-
-<header>
-</header>
+    <h1 class="about-title">About Us</h1>
+    <hr>
 
     <main>
         <h2>Team</h2>
-        <div class="container">
-            <ul>
-                <li style="margin: 20px;text-align: center; background-color: rgb(244, 240, 240); box-shadow: 5px 5px #0d0b10;">
-                    <img src="{{ asset('assets/image/IKaas.jpg') }}" alt="I Ketut Agus Arta Suteja" style="border-radius: 10%   ; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color: #333;">I Ketut Agus Arta Suteja </span> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color: #333;">NIM: 2355201007</span>
+        <div class="about-container">
+            <ul class="about-team-list">
+                <li>
+                    <img src="{{ asset('assets/image/IKaas.jpg') }}" alt="I Ketut Agus Arta Suteja">
+                    <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color: #dfdada;">I Ketut Agus Arta Suteja
+                    </span>
+                    <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color: #e9e6e6;">NIM: 2355201007</span>
                     <p style="color: #0d0b10">"Keep learning guys"</p>
                 </li>
-                <li style="margin: 20px; text-align: center; background-color: rgb(244, 240, 240); box-shadow: 5px 5px #0d0b10; ;">
-                    <img src="{{ asset('assets/image/yoga.jpg') }}" alt="Yoga Prakusya" style="border-radius: 10%; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color: black;">Yoga Prakusya</span> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color: #333;">NIM: 2355201007</span>
+                <li>
+                    <img src="{{ asset('assets/image/yoga.jpg') }}" alt="Yoga Prakusya">
+                    <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color: rgb(227, 219, 219);">Yoga
+                        Prakusya</span> <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color: #cfc2c2;">NIM: 2355201007</span>
                     <p style="color: black;">Anggota</p>
                 </li>
-                <li style="margin: 20px; text-align: center; background-color: rgb(244, 240, 240); box-shadow: 5px 5px #0d0b10;">
-                    <img src="{{ asset('assets/image/asta.jpg') }}" alt="asta" style="border-radius: 10%; margin-bottom: 10px; width: 100px; height: 100px; box-shadow: 2px 2px #514f55;"> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color:black;">I Gede Asta Peramita Darma</span> <br>
-                    <span style="font-family: 'Times New Roman', Times, serif; color:black;">NIM: 2355201005</span>
+                <li>
+                    <img src="{{ asset('assets/image/asta.jpg') }}" alt="asta">
+                    <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color:rgb(226, 217, 217);">I Gede Asta
+                        Peramita
+                        Darma</span> <br>
+                    <span style="font-family: 'Times New Roman', Times, serif; color:rgb(222, 212, 212);">NIM:
+                        2355201005</span>
                     <p style="color: black;">Anggota</p>
                 </li>
             </ul>
         </div>
     </main>
-
     <hr>
+@endsection
+
+@section('footer')
     <footer>
         <div class="row">
             <div class="col-md-4">
